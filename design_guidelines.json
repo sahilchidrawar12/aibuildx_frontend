@@ -1,0 +1,127 @@
+{
+  "identity": {
+    "name": "AiBuild X",
+    "persona": "E1: The Anti-AI Designer",
+    "aesthetic": "Industrial Future",
+    "vibe": "Autodesk Construction Cloud meets Linear",
+    "emotional_tone": "Authority, Precision, Reliability, Future-Tech"
+  },
+  "typography": {
+    "font_family": {
+      "sans": "Inter, sans-serif",
+      "mono": "Roboto Mono, monospace",
+      "heading": "Roboto Mono, monospace"
+    },
+    "usage_rules": {
+      "headings": "Use 'Roboto Mono' for all H1-H3. Uppercase, tracking-wide (tracking-[0.2em]). Font weight: Bold (700) or Black (900).",
+      "body": "Use 'Inter' for all body text, labels, and inputs. High legibility.",
+      "data_numbers": "Use 'Roboto Mono' for all metrics, pricing, and tabular data.",
+      "anti_patterns": "Do not use Inter for main headings. Do not use default font weights (400) for headings."
+    }
+  },
+  "colors": {
+    "theme_strategy": "Hybrid. Dark Mode (Slate-900) is the default 'Pro' interface. Light Mode (Slate-50) is available for documentation/printing.",
+    "palette": {
+      "primary": {
+        "name": "Electric Blue",
+        "hex": "#2563EB",
+        "tailwind": "bg-blue-600",
+        "usage": "Primary actions, active states, key highlights."
+      },
+      "background": {
+        "dark": "bg-slate-900",
+        "light": "bg-slate-50",
+        "usage": "Main app background."
+      },
+      "surface": {
+        "dark": "bg-slate-800/50",
+        "light": "bg-white/80",
+        "usage": "Cards, sidebars, modals. MUST use backdrop-blur-md."
+      },
+      "accents": {
+        "success": "text-emerald-500",
+        "error": "text-rose-500",
+        "warning": "text-amber-500",
+        "usage": "Status indicators (Active, Expired, Error)."
+      },
+      "borders": {
+        "dark": "border-slate-700",
+        "light": "border-slate-200",
+        "usage": "All containers must have a 1px border."
+      }
+    },
+    "gradients": {
+      "forbidden": "No full-screen gradients.",
+      "allowed": "Subtle 'Tracing Beam' gradients on borders only."
+    }
+  },
+  "layout_system": {
+    "spacing": {
+      "philosophy": "Generous. Use 2x standard spacing.",
+      "scale": ["p-4", "p-6", "p-8", "p-12", "p-16", "p-24"],
+      "rule": "Containers with borders MUST have internal padding (p-6 or p-8)."
+    },
+    "grids": {
+      "dashboard": {
+        "name": "The Control Room",
+        "structure": "grid-cols-1 md:grid-cols-4 gap-4",
+        "rules": "Dense, compact. Widgets must stretch (h-full). No jagged bottoms."
+      },
+      "marketing": {
+        "name": "The Tetris Grid",
+        "structure": "grid-cols-1 md:grid-cols-12 gap-8",
+        "rules": "Asymmetrical. Mix 'Hero' (col-span-8), 'Tall' (row-span-2), and 'Filler' (col-span-2) blocks."
+      }
+    }
+  },
+  "components": {
+    "strategy": "Shadcn UI + Heavy Customization",
+    "styling_rules": {
+      "cards": "Glassmorphism (bg-slate-800/50 backdrop-blur-md). 1px border (border-slate-700). No shadow in dark mode.",
+      "buttons": "Sharp edges or small radius (rounded-sm). Primary: Electric Blue. Secondary: Ghost/Outline.",
+      "inputs": "Flat, slate-900 background, border-slate-700. Focus: Ring-2 ring-blue-600.",
+      "modals": "Glassmorphism overlay. Sharp corners."
+    },
+    "libraries": {
+      "charts": "Recharts (via Shadcn Charts)",
+      "icons": "Lucide React (default), Phosphor Icons (for technical density)",
+      "animations": "Framer Motion",
+      "3d": "React Mesh Gradient (for background) or Custom SVG"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Use 'backdrop-blur-md' and 'bg-opacity-50' for all floating elements.",
+    "mesh_background": "Subtle animated SVG wireframe in the background of the Landing and Auth pages.",
+    "borders": "Use 'border-collapse' style for data grids. 1px solid borders.",
+    "shadows": "Ambient only. 'shadow-2xl' for floating modals."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1760239032345-edf279785412?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmFsJTIwd2lyZWZyYW1lJTIwZGlnaXRhbCUyMGFic3RyYWN0fGVufDB8fHx8MTc2NDY3ODI5OHww&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract geometric city skyline, use for Landing Page Hero Background with overlay."
+    },
+    "project_creation": {
+      "url": "https://images.unsplash.com/photo-1698846296220-e44d9d4b9100?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwzfHxzdHJ1Y3R1cmFsJTIwZW5naW5lZXIlMjB3b3JraW5nJTIwb24lMjBibHVlcHJpbnRzfGVufDB8fHx8MTc2NDY3ODI5NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Engineer drawing floor plan, use for Project Creation / Upload section."
+    },
+    "construction_site": {
+      "url": "https://images.unsplash.com/photo-1760360324472-3c833eaf2d1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwc2t5c2NyYXBlciUyMGFlc3RoZXRpY3xlbnwwfHx8fDE3NjQ2NzgyOTd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Crane against glass building, use for 'About' or 'Features' section."
+    }
+  },
+  "universal_guidelines": {
+    "general": [
+      "Do not use gradients for text.",
+      "Do not use 'Inter' for headings.",
+      "Always use 'data-testid' for interactive elements.",
+      "Use 'sonner' for toasts.",
+      "Use 'lucide-react' for icons."
+    ],
+    "accessibility": [
+      "Ensure contrast ratio of 4.5:1 for normal text.",
+      "Interactive elements must have focus states (ring-2).",
+      "Respect 'prefers-reduced-motion'."
+    ]
+  },
+  "instructions_to_main_agent": "Implement the 'Industrial Future' aesthetic. Start with the Landing Page using the 'Tetris Grid' and the abstract wireframe background. Then build the Dashboards using the 'Control Room' layout. Use the defined color palette strictly. Ensure all Shadcn components are customized to match the 'Glassmorphism' and 'Sharp Edge' style."
+}
