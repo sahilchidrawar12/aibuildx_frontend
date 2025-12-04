@@ -24,6 +24,17 @@
     --input: 217 33% 17%;
     --ring: 199 89% 48%;
     --radius: 0.5rem;
+    
+    /* Glass Design System Colors */
+    --primary-dark: 248 53% 58%;
+    --primary-light: 244 58% 73%;
+    --success: 158 64% 52%;
+    --error: 0 72% 51%;
+    --warning: 38 92% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
   }
 
   .dark {

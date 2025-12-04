@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../components/DashboardLayout';
 import StatCard from '../components/StatCard';
+import GlassCard from '../components/GlassCard';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
@@ -172,11 +173,11 @@ const SuperAdminDashboard = () => {
       </div>
 
       {/* Pricing Plans Management */}
-      <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-sm p-6 mb-8">
+      <GlassCard className="mb-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h3 className="text-xl font-bold text-white font-mono tracking-wide uppercase">Pricing Plans</h3>
-            <p className="text-sm text-slate-400 mt-1">Manage subscription tiers and pricing</p>
+            <h3 className="text-xl font-bold text-gray-900">Pricing Plans</h3>
+            <p className="text-sm text-gray-600 mt-1">Manage subscription tiers and pricing</p>
           </div>
           <Dialog open={showPlanDialog} onOpenChange={setShowPlanDialog}>
             <DialogTrigger asChild>
@@ -186,18 +187,18 @@ const SuperAdminDashboard = () => {
                   setPlanForm({ name: '', price: '', maxUsers: '', storageLimitGB: '' });
                 }}
                 data-testid="create-plan-button"
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-sm"
+                className="bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:opacity-90 text-white rounded-lg"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Create Plan
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-slate-800 border-slate-700 text-white">
+            <DialogContent className="bg-white border-gray-200">
               <DialogHeader>
-                <DialogTitle className="font-mono tracking-wide uppercase">
+                <DialogTitle className="text-gray-900">
                   {editingPlan ? 'Edit Plan' : 'Create New Plan'}
                 </DialogTitle>
-                <DialogDescription className="text-slate-400">
+                <DialogDescription className="text-gray-600">
                   {editingPlan
                     ? 'Update plan details. Changes apply to new subscriptions only.'
                     : 'Define a new subscription plan for clients.'}
@@ -205,7 +206,7 @@ const SuperAdminDashboard = () => {
               </DialogHeader>
               <form onSubmit={handleCreatePlan} className="space-y-4 mt-4">
                 <div>
-                  <Label htmlFor="planName" className="text-slate-300">Plan Name</Label>
+                  <Label htmlFor="planName" className="text-gray-700">Plan Name</Label>
                   <Input
                     id="planName"
                     value={planForm.name}
@@ -213,11 +214,11 @@ const SuperAdminDashboard = () => {
                     disabled={editingPlan}
                     required
                     data-testid="plan-name-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="planPrice" className="text-slate-300">Price (INR)</Label>
+                  <Label htmlFor="planPrice" className="text-gray-700">Price (INR)</Label>
                   <Input
                     id="planPrice"
                     type="number"
@@ -225,11 +226,11 @@ const SuperAdminDashboard = () => {
                     onChange={(e) => setPlanForm({ ...planForm, price: e.target.value })}
                     required
                     data-testid="plan-price-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="planMaxUsers" className="text-slate-300">Max Users</Label>
+                  <Label htmlFor="planMaxUsers" className="text-gray-700">Max Users</Label>
                   <Input
                     id="planMaxUsers"
                     type="number"
@@ -237,11 +238,11 @@ const SuperAdminDashboard = () => {
                     onChange={(e) => setPlanForm({ ...planForm, maxUsers: e.target.value })}
                     required
                     data-testid="plan-maxusers-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="planStorage" className="text-slate-300">Storage Limit (GB)</Label>
+                  <Label htmlFor="planStorage" className="text-gray-700">Storage Limit (GB)</Label>
                   <Input
                     id="planStorage"
                     type="number"
@@ -249,13 +250,13 @@ const SuperAdminDashboard = () => {
                     onChange={(e) => setPlanForm({ ...planForm, storageLimitGB: e.target.value })}
                     required
                     data-testid="plan-storage-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <Button
                   type="submit"
                   data-testid="plan-submit-button"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:opacity-90 text-white"
                 >
                   {editingPlan ? 'Update Plan' : 'Create Plan'}
                 </Button>
@@ -267,22 +268,22 @@ const SuperAdminDashboard = () => {
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
-              <TableRow className="border-slate-700 hover:bg-slate-700/50">
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Plan Name</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Price</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Max Users</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Storage</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Status</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Actions</TableHead>
+              <TableRow className="border-gray-200 hover:bg-gray-50">
+                <TableHead className="text-gray-700 font-semibold">Plan Name</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Price</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Max Users</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Storage</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Status</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {plans.map((plan) => (
-                <TableRow key={plan.id} className="border-slate-700 hover:bg-slate-700/30">
-                  <TableCell className="text-white font-medium">{plan.name}</TableCell>
-                  <TableCell className="text-white font-mono">₹{plan.price.toLocaleString('en-IN')}</TableCell>
-                  <TableCell className="text-white">{plan.maxUsers} users</TableCell>
-                  <TableCell className="text-white">{plan.storageLimitGB} GB</TableCell>
+                <TableRow key={plan.id} className="border-gray-200 hover:bg-gray-50">
+                  <TableCell className="text-gray-900 font-medium">{plan.name}</TableCell>
+                  <TableCell className="text-gray-900 font-mono">₹{plan.price.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="text-gray-900">{plan.maxUsers} users</TableCell>
+                  <TableCell className="text-gray-900">{plan.storageLimitGB} GB</TableCell>
                   <TableCell>
                     <span
                       className={`px-2 py-1 rounded text-xs font-medium ${
@@ -300,7 +301,7 @@ const SuperAdminDashboard = () => {
                       size="sm"
                       variant="ghost"
                       data-testid={`edit-plan-${plan.id}`}
-                      className="text-blue-500 hover:text-blue-400 hover:bg-slate-700"
+                      className="text-[#667eea] hover:text-[#764ba2] hover:bg-gray-100"
                     >
                       <Edit className="w-4 h-4" />
                     </Button>
@@ -310,46 +311,46 @@ const SuperAdminDashboard = () => {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </GlassCard>
 
       {/* Marketing Users */}
-      <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-sm p-6">
+      <GlassCard>
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h3 className="text-xl font-bold text-white font-mono tracking-wide uppercase">Marketing Team</h3>
-            <p className="text-sm text-slate-400 mt-1">Manage marketing and admin users</p>
+            <h3 className="text-xl font-bold text-gray-900">Marketing Team</h3>
+            <p className="text-sm text-gray-600 mt-1">Manage marketing and admin users</p>
           </div>
           <Dialog open={showUserDialog} onOpenChange={setShowUserDialog}>
             <DialogTrigger asChild>
               <Button
                 data-testid="create-user-button"
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-sm"
+                className="bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:opacity-90 text-white rounded-lg"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add User
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-slate-800 border-slate-700 text-white">
+            <DialogContent className="bg-white border-gray-200">
               <DialogHeader>
-                <DialogTitle className="font-mono tracking-wide uppercase">Create New User</DialogTitle>
-                <DialogDescription className="text-slate-400">
+                <DialogTitle className="text-gray-900">Create New User</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   Add a new marketing team member or admin
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleCreateUser} className="space-y-4 mt-4">
                 <div>
-                  <Label htmlFor="userName" className="text-slate-300">Name</Label>
+                  <Label htmlFor="userName" className="text-gray-700">Name</Label>
                   <Input
                     id="userName"
                     value={userForm.name}
                     onChange={(e) => setUserForm({ ...userForm, name: e.target.value })}
                     required
                     data-testid="user-name-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="userEmail" className="text-slate-300">Email</Label>
+                  <Label htmlFor="userEmail" className="text-gray-700">Email</Label>
                   <Input
                     id="userEmail"
                     type="email"
@@ -357,11 +358,11 @@ const SuperAdminDashboard = () => {
                     onChange={(e) => setUserForm({ ...userForm, email: e.target.value })}
                     required
                     data-testid="user-email-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="userPassword" className="text-slate-300">Password</Label>
+                  <Label htmlFor="userPassword" className="text-gray-700">Password</Label>
                   <Input
                     id="userPassword"
                     type="password"
@@ -369,17 +370,17 @@ const SuperAdminDashboard = () => {
                     onChange={(e) => setUserForm({ ...userForm, password: e.target.value })}
                     required
                     data-testid="user-password-input"
-                    className="bg-slate-900 border-slate-700 text-white mt-1"
+                    className="bg-gray-50 border-gray-300 text-gray-900 mt-1"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="userRole" className="text-slate-300">Role</Label>
+                  <Label htmlFor="userRole" className="text-gray-700">Role</Label>
                   <select
                     id="userRole"
                     value={userForm.role}
                     onChange={(e) => setUserForm({ ...userForm, role: e.target.value })}
                     data-testid="user-role-select"
-                    className="w-full bg-slate-900 border border-slate-700 text-white rounded-sm p-2 mt-1"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 mt-1"
                   >
                     <option value="Marketing">Marketing</option>
                     <option value="SuperAdmin">Super Admin</option>
@@ -388,7 +389,7 @@ const SuperAdminDashboard = () => {
                 <Button
                   type="submit"
                   data-testid="user-submit-button"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full bg-gradient-to-r from-[#667eea] to-[#764ba2] hover:opacity-90 text-white"
                 >
                   Create User
                 </Button>
@@ -400,20 +401,20 @@ const SuperAdminDashboard = () => {
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
-              <TableRow className="border-slate-700 hover:bg-slate-700/50">
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Name</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Email</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Role</TableHead>
-                <TableHead className="text-slate-300 font-mono uppercase text-xs">Actions</TableHead>
+              <TableRow className="border-gray-200 hover:bg-gray-50">
+                <TableHead className="text-gray-700 font-semibold">Name</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Email</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Role</TableHead>
+                <TableHead className="text-gray-700 font-semibold">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {users.map((user) => (
-                <TableRow key={user.id} className="border-slate-700 hover:bg-slate-700/30">
-                  <TableCell className="text-white font-medium">{user.name}</TableCell>
-                  <TableCell className="text-white font-mono text-sm">{user.email}</TableCell>
+                <TableRow key={user.id} className="border-gray-200 hover:bg-gray-50">
+                  <TableCell className="text-gray-900 font-medium">{user.name}</TableCell>
+                  <TableCell className="text-gray-900 font-mono text-sm">{user.email}</TableCell>
                   <TableCell>
-                    <span className="px-2 py-1 bg-blue-500/20 text-blue-500 rounded text-xs font-medium">
+                    <span className="px-2 py-1 bg-[#667eea]/20 text-[#667eea] rounded text-xs font-medium">
                       {user.role}
                     </span>
                   </TableCell>
@@ -423,7 +424,7 @@ const SuperAdminDashboard = () => {
                       size="sm"
                       variant="ghost"
                       data-testid={`delete-user-${user.id}`}
-                      className="text-rose-500 hover:text-rose-400 hover:bg-slate-700"
+                      className="text-rose-500 hover:text-rose-600 hover:bg-gray-100"
                     >
                       <Trash2 className="w-4 h-4" />
                     </Button>
@@ -433,7 +434,7 @@ const SuperAdminDashboard = () => {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </GlassCard>
     </DashboardLayout>
   );
 };
